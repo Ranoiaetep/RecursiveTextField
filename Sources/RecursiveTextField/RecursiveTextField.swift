@@ -1,7 +1,6 @@
 import SwiftUI
 
-@available(OSX 11.0, *)
-struct RecursiveTextField: View {
+struct RecursiveTextFieldView: View {
 	@Binding var textList: [String]
 	var index: Int = 0
 	var placeholder: String = "Placeholder"
@@ -15,7 +14,7 @@ struct RecursiveTextField: View {
 					if !(textList.last?.isEmpty ?? false) {
 						textList.append(String())
 					}
-					nextRecursion = AnyView(RecursiveTextField(textList: $textList, index: index + 1, placeholder: placeholder))
+					nextRecursion = AnyView(RecursiveTextFieldView(textList: $textList, index: index + 1, placeholder: placeholder))
 				} else if index != textList.count - 1 {
 					skipped = true
 				}
