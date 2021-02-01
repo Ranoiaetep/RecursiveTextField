@@ -23,17 +23,20 @@ public struct RecursiveTextField: View {
 	
 	public var body: some View {
 		if !skipped {
-			TextField(placeholder, text: $textList[index], onCommit: {
-				if !textList[index].isEmpty {
-					if !(textList.last?.isEmpty ?? false) {
-						textList.append(String())
-					}
-					nextRecursion = AnyView(RecursiveTextField(textList: $textList, index: index + 1, placeholder: placeholder))
-				} else if index != textList.count - 1 {
-					skipped = true
-				}
-			})
+			TextField(placeholder, text: $textList[index], onCommit: checkNextRecursion)
+				.onAppear(perform: checkNextRecursion)
 		}
 		nextRecursion
+	}
+	
+	func checkNextRecursion() {
+		if !textList[index].isEmpty {
+			if !(textList.last?.isEmpty ?? false) {
+				textList.append(String())
+			}
+			nextRecursion = AnyView(RecursiveTextField(textList: $textList, index: index + 1, placeholder: placeholder))
+		} else if index != textList.count - 1 {
+			skipped = true
+		}
 	}
 }
