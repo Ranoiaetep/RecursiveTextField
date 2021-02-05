@@ -20,8 +20,15 @@ The following example shows a `RecursiveTextField`, where three `TextField` will
 RecursiveTextField(textList: $textList, placeholder: "Input...")
 ```
 
-## Parameters
+## Initializers
 
--   `_ textList`: An array of `String` that will be modified through `TextField`.
+`init(_ textList: Binding<[String]>)`
 
--   `placeholder`[optional]: Default text to be displayed when no text was entered to `TextField` yet.
+`init(textList: Binding<[String]>, placeholder: String = "Placeholder")`
+
+### Parameters
+
+-   `_ textList`/`textList`: An array of `String` that will be modified through `TextField`.
+
+-   `placeholder [optional]`: Default text to be displayed when no text was entered to `TextField` yet.
+
