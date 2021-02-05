@@ -4,7 +4,7 @@ Create a group of ``TextField``  that will recursively grow as new data are ente
 
 This view will automatically remove emptied `TextField`, so only one empty `TextField` filled with `placeholder` will be displayed at the bottom.
 
-![screenshot](/Users/ranoiaetep/Documents/GitHub/RecursiveTextField/screenshot.gif)
+![screenshot](./screenshot.gif)
 
 ## Example
 
